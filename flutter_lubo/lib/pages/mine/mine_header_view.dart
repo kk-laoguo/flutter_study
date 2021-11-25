@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
 import 'package:flutter_lubo/const/const_num.dart';
-import 'package:flutter_lubo/generated/l10n.dart';
-
+import 'package:flutter_lubo/generated/locales.g.dart';
+import 'package:get/get.dart';
 class MineHeaderView extends StatelessWidget {
   const MineHeaderView({Key? key}) : super(key: key);
 
@@ -53,7 +53,7 @@ class MineHeaderView extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      S.current.check,
+                      LocaleKeys.check.tr,
                       style: const TextStyle(
                         fontSize: 14,
                         color: LBColor.white

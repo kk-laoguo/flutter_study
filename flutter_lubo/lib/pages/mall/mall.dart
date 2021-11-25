@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
 import 'package:flutter_lubo/generated/l10n.dart';
+import 'package:flutter_lubo/generated/locales.g.dart';
 import 'package:flutter_lubo/pages/mall/mall_content.dart';
-
+import 'package:get/get.dart';
 class MallPage extends StatelessWidget {
   const MallPage({Key? key}) : super(key: key);
 
@@ -10,7 +11,7 @@ class MallPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).mall),
+        title: Text(LocaleKeys.mall.tr),
       ),
       body: MallContent(),
     );

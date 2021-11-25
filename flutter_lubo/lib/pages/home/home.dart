@@ -5,43 +5,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
 import 'package:flutter_lubo/const/routes.dart';
-import 'package:flutter_lubo/generated/l10n.dart';
+import 'package:flutter_lubo/generated/locales.g.dart';
+import 'package:flutter_lubo/pages/home/home_controller.dart';
 import 'package:flutter_lubo/pages/home/home_item.dart';
 import 'package:flutter_lubo/pages/home/home_top_header.dart';
 import 'package:flutter_lubo/utils/toast.dart';
 import 'package:flutter_lubo/viewmodel/hoem_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends GetView<HomeController> {
+
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    HomeViewModel homeVM = Provider.of<HomeViewModel>(context, listen: false);
-    homeVM.requestHomeHeaderInfo();
-    homeVM.requestHomeList();
-    super.initState();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).home),
+        title: Text(LocaleKeys.home.tr),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: Consumer<HomeViewModel>(
-                builder: (ctx, vm, child) {
-                  return _buildHeader(vm);
+              child: GetBuilder<HomeController>(
+                builder: (controller)  {
+                  return _buildHeader(controller);
                 },
               ),
             ),
@@ -53,11 +44,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildHeader(HomeViewModel vm) {
+  Widget _buildHeader(HomeController controller) {
     return Column(
       children: [
         HomeBannerView(
-            banners: (vm.headerInfo?.banner ?? []).map((e) {
+            banners: (controller.headerInfo?.banner ?? []).map((e) {
           return GestureDetector(
             child: CachedNetworkImage(
               imageUrl:
@@ -77,7 +68,8 @@ class _HomePageState extends State<HomePage> {
             },
           );
         }).toList()),
-        HomeBrandView(list: vm.headerInfo?.brandList ?? []),
+        const SizedBox(height: 10,),
+        HomeBrandView(list: controller.headerInfo?.brandList ?? []),
       ],
     );
   }
@@ -102,21 +94,21 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildListItem() {
-    return Consumer<HomeViewModel>(
-      builder: (ctx, vm, child) {
+    return GetBuilder<HomeController>(
+      builder: (controller) {
         return SliverList(
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               return GestureDetector(
                 child: HomeListItem(
-                  model: vm.recommendList?[index],
+                  model: controller.recommendList?[index],
                 ),
                 onTap: () {
                   Navigator.of(context).pushNamed(RouterName.goodsdetail);
                 },
               );
             },
-            childCount: vm.recommendList?.length ?? 0,
+            childCount: controller.recommendList?.length ?? 0,
           ),
         );
       },

@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
-import 'package:flutter_lubo/generated/l10n.dart';
+import 'package:flutter_lubo/generated/locales.g.dart';
 import 'package:flutter_lubo/pages/mine/mine_header_view.dart';
 import 'package:flutter_lubo/pages/mine/mine_menu_content_view.dart';
-
+import 'package:get/get.dart';
 class MinePage extends StatelessWidget {
   const MinePage({Key? key}) : super(key: key);
 
   static final Map<String, String> orderMap = {
-    S.current.totalOrder: "order_ic_all.png",
-    S.current.waitdeliver: "order_ic_wait.png",
-    S.current.delivered: "order_ic_fahuo.png",
-    S.current.signed: "order_ic_sign.png"
+    LocaleKeys.totalOrder.tr: "order_ic_all.png",
+    LocaleKeys.waitdeliver.tr: "order_ic_wait.png",
+    LocaleKeys.delivered.tr: "order_ic_fahuo.png",
+    LocaleKeys.signed.tr: "order_ic_sign.png"
   };
   static final Map<String, String> serversMap = {
-    S.current.myAssets: "mine_ic_zichang.png",
-    S.current.contact: "mine_ic_kefu.png",
-    S.current.settings: "mine_ic_private.png",
-    S.current.aboutUs: "mine_ic_us.png",
-    S.current.logout: "mine_ic_logout.png",
-    S.current.exit: "mine_ic_exit.png"
+    LocaleKeys.myAssets.tr: "mine_ic_zichang.png",
+    LocaleKeys.contact.tr: "mine_ic_kefu.png",
+    LocaleKeys.aboutUs.tr: "mine_ic_us.png",
+    LocaleKeys.logout.tr: "mine_ic_logout.png",
+    LocaleKeys.exit.tr: "mine_ic_exit.png"
   };
 
   @override
@@ -32,11 +31,11 @@ class MinePage extends StatelessWidget {
             child: Column(
               children: [
                 const MineHeaderView(),
-                _buildTitle(S.current.myOrder),
+                _buildTitle(LocaleKeys.myOrder.tr),
                 MineMenuContentView(
                   map: orderMap,
                 ),
-                _buildTitle(S.current.myService),
+                _buildTitle(LocaleKeys.myService.tr),
                 MineMenuContentView(
                   map: serversMap,
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lubo/pages/home/goods/goods_detail_content.dart';
+import 'package:flutter_lubo/pages/goods/goods_detail_content.dart';
 
 class GoodsDetailPage extends StatelessWidget {
   const GoodsDetailPage({Key? key}) : super(key: key);

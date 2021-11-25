@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
 import 'package:flutter_lubo/const/const_num.dart';
 import 'package:flutter_lubo/generated/l10n.dart';
-
+import 'package:flutter_lubo/generated/locales.g.dart';
+import 'package:get/get.dart';
 class MallContent extends StatelessWidget {
   const MallContent({Key? key}) : super(key: key);
 
@@ -13,10 +14,10 @@ class MallContent extends StatelessWidget {
     "assets/images/mall_ic_apply.png"
   ];
   static final titles = [
-    S.current.buybackOrder,
-    S.current.tradeOrder,
-    S.current.finace,
-    S.current.buybackApply
+    LocaleKeys.buybackOrder.tr,
+    LocaleKeys.tradeOrder.tr,
+    LocaleKeys.finace.tr,
+    LocaleKeys.buybackApply.tr
   ];
 
   @override
@@ -46,9 +47,9 @@ class MallContent extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildItem(0, S.current.totalOrder),
-              _buildItem(0, S.current.remainTrade),
-              _buildItem(0, S.current.expireTrade),
+              _buildItem(0, LocaleKeys.totalOrder.tr),
+              _buildItem(0, LocaleKeys.remainTrade.tr),
+              _buildItem(0, LocaleKeys.expireTrade.tr),
             ],
           ),
         )

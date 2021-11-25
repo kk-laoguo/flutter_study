@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lubo/const/app_theme.dart';
-import 'package:flutter_lubo/generated/l10n.dart';
+import 'package:flutter_lubo/generated/locales.g.dart';
 import 'package:flutter_lubo/pages/storage/storage_header_item.dart';
-
+import 'package:get/get.dart';
 class StorageContent extends StatelessWidget {
   static final _bottomTitles = [
-    S.current.inStorageApply,
-    S.current.outStorageApply,
-    S.current.applyTransport,
-    S.current.monitor
+    LocaleKeys.inStorageApply.tr,
+    LocaleKeys.outStorageApply.tr,
+    LocaleKeys.applyTransport.tr,
+    LocaleKeys.monitor.tr
   ];
 
   static const _bottomImages = [
@@ -47,14 +47,14 @@ class StorageContent extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildHeaderTitle(S.of(context).storageData),
+            _buildHeaderTitle(LocaleKeys.storageData.tr),
             StorageHeaderItem(const [0, 0, 0], 
-            [ S.current.inStorage,
-              S.current.outStorage,
-              S.current.inventory]),
-            _buildHeaderTitle(S.of(context).logistisData),
+            [ LocaleKeys.inStorage.tr,
+              LocaleKeys.outStorage.tr,
+              LocaleKeys.inventory.tr]),
+            _buildHeaderTitle(LocaleKeys.logistisData.tr),
             StorageHeaderItem(
-                const [0, 0], [S.current.doing, S.current.finish]),
+                const [0, 0], [LocaleKeys.doing.tr, LocaleKeys.finish.tr]),
           ],
         )
       ],

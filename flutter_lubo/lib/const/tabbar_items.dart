@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lubo/generated/l10n.dart';
+import 'package:flutter_lubo/generated/locales.g.dart';
 import 'package:flutter_lubo/pages/home/home.dart';
 import 'package:flutter_lubo/pages/mall/mall.dart';
 import 'package:flutter_lubo/pages/mine/mine.dart';
 import 'package:flutter_lubo/pages/storage/storage.dart';
-
+import 'package:get/get.dart';
 class TabBars {
   static const List<Widget> pages = [
     HomePage(),
@@ -16,16 +17,16 @@ class TabBars {
     String title = "";
     switch (e) {
       case "home":
-        title = S.current.home;
+        title = LocaleKeys.home.tr;
         break;
       case "finance":
-        title = S.current.finace;
+        title = LocaleKeys.storage.tr;
         break;
       case "mall":
-        title = S.current.mall;
+        title = LocaleKeys.mall.tr;
         break;
       case "my":
-        title = S.current.mine;
+        title = LocaleKeys.mine.tr;
         break;
       default:
     }

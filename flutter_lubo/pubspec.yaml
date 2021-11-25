@@ -28,6 +28,7 @@ dependencies:
   # 吐司
   fluttertoast: ^8.0.8
   flutter_easyloading: ^3.0.3
+  get: ^4.3.8
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

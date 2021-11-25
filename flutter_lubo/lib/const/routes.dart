@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lubo/pages/home/goods/goods_detail.dart';
+import 'package:flutter_lubo/pages/goods/goods_detail.dart';
 import 'package:flutter_lubo/pages/home/home.dart';
+import 'package:flutter_lubo/pages/home/home_binding.dart';
 import 'package:flutter_lubo/pages/main_screen.dart';
+import 'package:get/route_manager.dart';
 
 class Routers {
   static final Map<String, WidgetBuilder> routers = {
@@ -10,15 +12,18 @@ class Routers {
     RouterName.goodsdetail: (ctx) => const GoodsDetailPage(),
   };
 
-  // ignore: prefer_function_declarations_over_variables
-  static final RouteFactory generateRoute = (settings) {
-    return null;
-  };
+  static final List<GetPage> getPages = [
+    GetPage(
+        name: RouterName.root,
+        page: () => const MainPage(),
+        binding: HomeBinding()),
+    GetPage(
+        name: RouterName.home,
+        page: () => const HomePage(),
+        binding: HomeBinding()),
+    GetPage(name: RouterName.goodsdetail, page: () => const GoodsDetailPage()),
+  ];
 
-  // ignore: prefer_function_declarations_over_variables
-  static final RouteFactory unknownRoute = (settings) {
-    return null;
-  };
 }
 
 class RouterName {
